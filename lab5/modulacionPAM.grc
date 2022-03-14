@@ -1,18 +1,17 @@
 options:
   parameters:
-    author: Linda Barrios - Luis Cogollo
+    author: ''
     catch_exceptions: 'True'
-    category: '[Modulos_L1A_SG2]'
+    category: '[modulos_L1A_G2]'
     cmake_opt: ''
     comment: ''
-    copyright: UIS
-    description: "Modulo dsarrollado para estudiar la envolvente compleja de una se\xF1\
-      al modulada"
+    copyright: ''
+    description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: hb
     hier_block_src_path: '.:'
-    id: EnvolventejComplejaPM
+    id: modulacionPAM
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -23,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Envolvente Compleja PM GL1A SG2
+    title: modulacion PAM
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -34,124 +33,115 @@ options:
     state: enabled
 
 blocks:
-- name: Ac
+- name: analog_sig_source_x_0
+  id: analog_sig_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: ''
+    freq: fs
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: samp_rate
+    type: float
+    waveform: analog.GR_SQR_WAVE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [120, 348.0]
+    rotation: 0
+    state: true
+- name: blocks_delay_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    delay: 50-d
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [416, 448.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_xx_0
+  id: blocks_multiply_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [672, 232.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_xx_1
+  id: blocks_multiply_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 352.0]
+    rotation: 0
+    state: true
+- name: d
   id: parameter
   parameters:
     alias: ''
     comment: ''
     hide: none
-    label: Amplitud de portadora
+    label: ancho de pulso
     short_id: ''
-    type: eng_float
-    value: '0.1'
+    type: intx
+    value: '10'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 28.0]
+    coordinate: [624, 12.0]
     rotation: 0
     state: true
-- name: Kp
+- name: fs
   id: parameter
   parameters:
     alias: ''
     comment: ''
     hide: none
-    label: Coeficiente de sensibilidad de modulacion PM
+    label: "frecuencia se\xF1al cuadrada"
     short_id: ''
-    type: eng_float
-    value: '1'
+    type: ''
+    value: '100000'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [192, 28.0]
-    rotation: 0
-    state: true
-- name: blocks_float_to_complex_0
-  id: blocks_float_to_complex
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [880, 288.0]
-    rotation: 0
-    state: true
-- name: blocks_multiply_const_vxx_0
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: Kp
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [408, 300.0]
-    rotation: 0
-    state: true
-- name: blocks_multiply_const_vxx_1
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: Ac
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1072, 300.0]
-    rotation: 0
-    state: true
-- name: blocks_transcendental_0
-  id: blocks_transcendental
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: cos
-    type: float
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [632, 268.0]
-    rotation: 0
-    state: true
-- name: blocks_transcendental_1
-  id: blocks_transcendental
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: sin
-    type: float
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [632, 332.0]
+    coordinate: [280, 12.0]
     rotation: 0
     state: true
 - name: pad_sink_0
@@ -163,13 +153,13 @@ blocks:
     label: out
     num_streams: '1'
     optional: 'False'
-    type: complex
+    type: float
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1248, 300.0]
+    coordinate: [840, 204.0]
     rotation: 0
     state: true
 - name: pad_source_0
@@ -189,18 +179,34 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 300.0]
+    coordinate: [120, 236.0]
+    rotation: 0
+    state: true
+- name: samp_rate
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: frecuencia de muestreo
+    short_id: ''
+    type: ''
+    value: '100000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 12.0]
     rotation: 0
     state: true
 
 connections:
-- [blocks_float_to_complex_0, '0', blocks_multiply_const_vxx_1, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_transcendental_0, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_transcendental_1, '0']
-- [blocks_multiply_const_vxx_1, '0', pad_sink_0, '0']
-- [blocks_transcendental_0, '0', blocks_float_to_complex_0, '0']
-- [blocks_transcendental_1, '0', blocks_float_to_complex_0, '1']
-- [pad_source_0, '0', blocks_multiply_const_vxx_0, '0']
+- [analog_sig_source_x_0, '0', blocks_delay_0, '0']
+- [analog_sig_source_x_0, '0', blocks_multiply_xx_1, '0']
+- [blocks_delay_0, '0', blocks_multiply_xx_1, '1']
+- [blocks_multiply_xx_0, '0', pad_sink_0, '0']
+- [blocks_multiply_xx_1, '0', blocks_multiply_xx_0, '1']
+- [pad_source_0, '0', blocks_multiply_xx_0, '0']
 
 metadata:
   file_format: 1
